@@ -1,0 +1,20 @@
+{
+  "name": "plain-text-plus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run clean && parcel src/index.html",
+    "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.1.1",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^1.8.10"
+  }
+}
