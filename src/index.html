@@ -9,13 +9,18 @@
     <title>Plain Text Plus</title>
   </head>
   <body class="bg-gray-100">
-    <main>
+    <main x-data="state()"></main>
       <h1 class="m-5 text-4xl text-center font-bold italic">Plain Text Plus</h1>
 
       <div class="sticky top-0 bg-yellow-500 shadow p-5 sm:px-16 lg:px-64">
         <input
           class="container p-3 rounded-lg text-lg border-dotted border-2 focus:outline-none focus:border-gray-700"
           type="text"
+          
+          x-model="state().textInput"
+          
+          x-data="{}"
+          x-init="state().setPlaceholder($el)"
         />
       </div>
 
@@ -47,5 +52,7 @@
         
       </div>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
