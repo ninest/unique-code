@@ -32,11 +32,14 @@ window.state = function () {
     },
 
     generateFancyText: function () {
+      // remove HTML tags
+      const text: string = this.textInput.replace(/<[^>]*>/g, ' ');
+
       const results: Result[] = [];
       for (const fnName of Object.keys(richTextEffects)) {
         const result: Result = {
           effectName: fnName,
-          richText: richTextEffects[fnName](this.textInput)
+          richText: richTextEffects[fnName](text)
         };
         results.push(result);
       }
