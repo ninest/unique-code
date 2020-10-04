@@ -18,9 +18,7 @@ window.state = function () {
   return {
     // --- data ---
     textInput: '',
-    results: [
-      
-    ],
+    results: [],
 
     // --- methods ---
     setPlaceholder: function (elem: HTMLElement) {
@@ -28,14 +26,14 @@ window.state = function () {
         placeholders[Math.floor(Math.random() * placeholders.length)];
       elem.setAttribute('placeholder', randomPlaceholder);
 
-      this.textInput = randomPlaceholder
-      this.generateFancyText()
+      this.textInput = randomPlaceholder;
+      this.generateFancyText();
     },
 
     generateFancyText: function () {
       const results: Result[] = [];
       for (const fnName of Object.keys(richTextEffects)) {
-        console.log(fnName);
+
         const result: Result = {
           effectName: fnName,
           richText: richTextEffects[fnName](this.textInput)
@@ -43,13 +41,11 @@ window.state = function () {
         results.push(result);
       }
 
-      console.log(results);
-      this.results = JSON.parse(JSON.stringify(results)) ;
-      console.log(this.results);
+      this.results = results;
     },
 
-    copy: function (text: string) {
-      console.log(`Copying "${text}"`);
+    copy: function (elem: HTMLElement) {
+      const text: string = elem.innerText
     }
   };
 };

@@ -23,9 +23,9 @@
       </div>
 
       <div class="mx-5 mb-10 sm:mx-16 lg:mx-64">
-        <template x-for="result in results" :key="result">
+        <template x-for="(result, index) in results" :key="result">
           <div
-            x-on:click="copy(result.richText)"
+            x-on:click="copy($refs[`result-${index}`])"
             class="mt-6 bg-white p-5 rounded shadow"
           >
             <!-- <div x-text="result.effectName"></div> -->
@@ -34,7 +34,7 @@
               x-text="result.effectName"
             ></span>
 
-            <div class="mt-1 text-xl" x-text="result.richText"></div>
+            <div class="mt-1 text-xl" :x-ref="`result-${index}`" x-html="result.richText"></div>
 
             <div
               class="mt-2 p-2 rounded-md bg-blue-100 text-blue-900 hover:bg-blue-300 inline-flex items-center"
