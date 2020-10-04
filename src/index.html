@@ -10,7 +10,7 @@
   </head>
   <body class="bg-gray-100">
     <main x-data="state()" x-init="setPlaceholder($refs.input)">
-      <h1 class="m-5 text-4xl text-center font-bold italic">Plain Text Plus</h1>
+      <h1 class="m-5 text-4xl text-center font-black italic">Unique Code</h1>
 
       <div class="sticky top-0 bg-yellow-500 shadow p-5 sm:px-16 lg:px-64">
         <input
@@ -34,7 +34,11 @@
               x-text="result.effectName"
             ></span>
 
-            <div class="mt-1 text-xl" :x-ref="`result-${index}`" x-html="result.richText"></div>
+            <div
+              class="mt-1 text-xl"
+              :x-ref="`result-${index}`"
+              x-html="result.richText"
+            ></div>
 
             <div
               class="mt-2 p-2 rounded-md bg-blue-100 text-blue-900 hover:bg-blue-300 inline-flex items-center"
