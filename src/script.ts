@@ -2,6 +2,7 @@ import 'alpinejs';
 
 import { placeholders } from './constants';
 import { richTextEffects } from './richText';
+import { copyToClipboard } from './clipboard';
 
 declare global {
   interface Window {
@@ -33,7 +34,6 @@ window.state = function () {
     generateFancyText: function () {
       const results: Result[] = [];
       for (const fnName of Object.keys(richTextEffects)) {
-
         const result: Result = {
           effectName: fnName,
           richText: richTextEffects[fnName](this.textInput)
@@ -45,7 +45,8 @@ window.state = function () {
     },
 
     copy: function (elem: HTMLElement) {
-      const text: string = elem.innerText
+      const text: string = elem.innerText;
+      copyToClipboard(text);
     }
   };
 };
