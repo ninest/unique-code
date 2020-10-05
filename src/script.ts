@@ -21,6 +21,12 @@ window.state = function () {
     textInput: '',
     results: [],
 
+    // --- lifecycle hook ---
+    created(refs: any) {
+      this.setPlaceholder(refs.input);
+      
+    },
+
     // --- methods ---
     setPlaceholder: function (elem: HTMLElement) {
       const randomPlaceholder: string =
