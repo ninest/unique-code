@@ -3,6 +3,7 @@ import 'alpinejs';
 import { placeholders } from './constants';
 import { richTextEffects } from './richText';
 import { copyToClipboard } from './clipboard';
+import { canShare, shareText } from './share';
 
 declare global {
   interface Window {
@@ -26,6 +27,7 @@ window.state = function () {
     // --- lifecycle hook ---
     created(refs: any) {
       this.setPlaceholder(refs.input);
+      this.canShare = canShare();
     },
 
     // --- methods ---
@@ -63,6 +65,12 @@ window.state = function () {
       await new Promise((resolve) => setTimeout(resolve, 2500));
 
       this.showToast = false;
+    }
+    ,
+
+    share: async function(elem: HTMLElement) {
+      const text: string = elem.innerText;
+      await shareText (text)
     }
   };
 };

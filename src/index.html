@@ -65,9 +65,13 @@
               </button>
 
               <!-- share button -->
-              <button x-show="canShare" class="ml-2 btn btn-red">
+              <button
+                x-show="canShare"
+                x-on:click="share($refs[`result-${index}`])"
+                class="ml-2 btn btn-red"
+              >
                 <svg
-                class="h-4 w-4"
+                  class="h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
