@@ -10,8 +10,10 @@
   </head>
   <body class="bg-gray-100">
     <main x-data="state()" x-init="created($refs)">
+      <!-- page title -->
       <h1 class="m-5 text-4xl text-center font-black italic">Unique Code</h1>
 
+      <!-- text input -->
       <div class="sticky top-0 bg-yellow-500 shadow p-5 sm:px-16 lg:px-64">
         <input
           x-ref="input"
@@ -22,61 +24,76 @@
         />
       </div>
 
+      <!-- results loop -->
       <div class="mx-5 mb-10 sm:mx-16 lg:mx-64">
         <template x-for="(result, index) in results" :key="result">
           <div
             x-on:click="copy($refs[`result-${index}`])"
             class="mt-6 bg-white p-5 rounded shadow"
           >
-            <!-- <div x-text="result.effectName"></div> -->
+            <!-- effect name (eybrow) -->
             <span
               class="inline-block text-xs text-gray-700 font-bold uppercase"
               x-text="result.effectName"
             ></span>
 
+            <!-- result (copyable text) -->
             <div
               class="mt-1 text-xl"
               :x-ref="`result-${index}`"
               x-html="result.richText"
             ></div>
 
-            <div
-              class="mt-2 p-2 rounded-md bg-blue-100 text-blue-900 hover:bg-blue-300 inline-flex items-center"
-            >
-              <svg
-                class="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
-              <div class="ml-1">copy</div>
+            <div class="flex items-center">
+              <!-- copy button -->
+              <button class="btn btn-blue">
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  />
+                </svg>
+                <div class="ml-1">copy</div>
+              </button>
+
+              <!-- share button -->
+              <button x-show="canShare" class="ml-2 btn btn-red">
+                <svg
+                class="h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+                <div class="ml-1">share</div>
+              </button>
             </div>
           </div>
         </template>
       </div>
 
-      <!-- <div class="mx-5 mb-10 sm:mx-16 lg:mx-64">
-        <template v-for="result in [1,2,3]" :key="result">
-          <div class="mt-6 bg-white p-5 rounded shadow">
-            <span class="inline-block text-xs text-gray-700 font-bold uppercase"
-              >Bold text</span
-            >
-            <div class="mt-1 text-xl">
-              This is some fun text that you will be typing very soon
-            </div>
-
-            
-          </div>
-        </template>
-      </div> -->
+      <!-- toast -->
+      <div
+        x-show="showToast"
+        class="fixed w-32 mx-auto my-10 bottom-0 left-0 right-0 p-5 rounded-full bg-blue-900 text-center text-white font-semibold uppercase tracking-wide"
+      >
+        copied
+      </div>
     </main>
 
     <script src="script.ts"></script>

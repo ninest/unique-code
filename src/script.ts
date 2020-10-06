@@ -20,11 +20,12 @@ window.state = function () {
     // --- data ---
     textInput: '',
     results: [],
+    showToast: false,
+    canShare: true,
 
     // --- lifecycle hook ---
     created(refs: any) {
       this.setPlaceholder(refs.input);
-      
     },
 
     // --- methods ---
@@ -53,9 +54,15 @@ window.state = function () {
       this.results = results;
     },
 
-    copy: function (elem: HTMLElement) {
+    copy: async function (elem: HTMLElement) {
       const text: string = elem.innerText;
       copyToClipboard(text);
+
+      this.showToast = true;
+
+      await new Promise((resolve) => setTimeout(resolve, 2500));
+
+      this.showToast = false;
     }
   };
 };
