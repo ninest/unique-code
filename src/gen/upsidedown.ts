@@ -1,6 +1,6 @@
 import { plainAll } from '../constants';
 
-export const upsidedownAll: string[] = "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz∀qƆpƎℲפHIſʞ˥WNOԀQɹS┴∩ΛMX⅄Z0ƖᄅƐㄣϛ9ㄥ86¡,#$%⅋,)(*+'-˙/:;>=<¿@][^‾,}|{~".split(
+export const upsidedownAll: string[] = "∀qƆpƎℲפHIſʞ˥WNOԀQɹS┴∩ΛMX⅄Zɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz0ƖᄅƐㄣϛ9ㄥ86¡,#$%⅋,)(*+'-˙/:;>=<¿@][^‾,}|{~".split(
   ''
 );
 

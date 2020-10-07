@@ -37,7 +37,8 @@ export const gen = ({
       pos = plainAll.indexOf(char);
       unicode = aValue + pos;
     } else if (allowNumbers && char.match(/[0-9]/)) {
-      pos = plainAll.indexOf(char);
+      pos = plainAll.indexOf(char) - plainAll.indexOf('0');
+      // negative index of "0" to get the offset correctly
 
       // if there's a one value, it means there's a gap between the unicode for 0 and 1
       if (oneValue && Number(char) >= 1) unicode = oneValue + (pos - 1);

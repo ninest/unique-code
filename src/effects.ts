@@ -2,6 +2,7 @@ import { gen } from './gen/gen';
 import { genUpsidedown } from './gen/upsidedown';
 import { genSarcastic } from './gen/sarcastic';
 import { genStrikethrough, genRedacted } from './gen/strikethrough';
+import { genBubble } from './gen/bubble';
 
 export interface Effect {
   name: string;
@@ -28,6 +29,10 @@ export const effects: Effect[] = [
   {
     name: 'redact',
     fn: (text) => genRedacted(text)
+  },
+  {
+    name: 'bubble',
+    fn: (text) => genBubble(text)
   },
 
   // sans serif

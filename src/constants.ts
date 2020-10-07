@@ -4,6 +4,6 @@ export const placeholders: string[] = [
   'Why was 6 afraid of 7?'
 ];
 
-export const plainAll: string[] = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~'.split(
+export const plainAll: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~'.split(
   ''
 );
