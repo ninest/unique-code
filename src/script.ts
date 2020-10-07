@@ -46,12 +46,14 @@ window.state = function () {
       // remove HTML tags
       const text: string = this.textInput.replace(/<[^>]*>/g, ' ');
 
+      const isEmpty: boolean = text.trim() === '';
+
       const results: Result[] = [];
-  
+
       for (const effect of effects) {
         const result: Result = {
           effectName: effect.name,
-          richText: effect.fn(text)
+          richText: effect.fn(isEmpty? `Example for ${effect.name}` :text)
         };
         results.push(result);
       }
@@ -76,7 +78,7 @@ window.state = function () {
 
     pin: function (elem: any) {
       // Add effect to favorites, saved by local storage
-      console.log(elem)
+      console.log(elem);
     }
   };
 };

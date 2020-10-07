@@ -60,3 +60,10 @@ export const plain: string[] = [
   'y',
   'z'
 ];
+
+export const plainAll: string[] = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~'.split(
+  ''
+);
+export const upsidedownAll: string[] = "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz∀qƆpƎℲפHIſʞ˥WNOԀQɹS┴∩ΛMX⅄Z0ƖᄅƐㄣϛ9ㄥ86¡,#$%⅋,)(*+'-˙/:;>=<¿@][^‾,}|{~".split(
+  ''
+);

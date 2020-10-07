@@ -1,4 +1,5 @@
 import { plain, num } from './constants';
+import { genUpsidedown } from './upsidedown';
 
 export interface Effect {
   name: string;
@@ -6,6 +7,15 @@ export interface Effect {
 }
 
 export const effects: Effect[] = [
+  // {
+  //   name: 'upside down',
+  //   fn: (text) => genUpsidedown(text)
+  // },
+  {
+    name: 'upside down',
+    fn: (text) => genUpsidedown(text, true)
+  },
+
   // sans serif
   {
     name: 'bold sans serif',
