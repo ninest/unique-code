@@ -1,4 +1,5 @@
-import { plain, num } from '../constants';
+// import { plain, num } from '../constants';
+import { plainAll } from '../constants';
 
 export interface params {
   aValue: number;
@@ -33,10 +34,10 @@ export const gen = ({
     let unicode: number;
 
     if (char.match(/[a-zA-Z]/)) {
-      pos = plain.indexOf(char);
+      pos = plainAll.indexOf(char);
       unicode = aValue + pos;
     } else if (allowNumbers && char.match(/[0-9]/)) {
-      pos = num.indexOf(char);
+      pos = plainAll.indexOf(char);
 
       // if there's a one value, it means there's a gap between the unicode for 0 and 1
       if (oneValue && Number(char) >= 1) unicode = oneValue + (pos - 1);
