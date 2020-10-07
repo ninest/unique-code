@@ -1,7 +1,7 @@
 import 'alpinejs';
 
 import { placeholders } from './constants';
-import { richTextEffects } from './richText';
+import { effects, Effect } from './richText';
 import { copyToClipboard } from './clipboard';
 import { canShare, shareText } from './share';
 
@@ -45,10 +45,18 @@ window.state = function () {
       const text: string = this.textInput.replace(/<[^>]*>/g, ' ');
 
       const results: Result[] = [];
-      for (const fnName of Object.keys(richTextEffects)) {
+      // for (const fnName of Object.keys(richTextEffects)) {
+      //   const result: Result = {
+      //     effectName: fnName,
+      //     richText: richTextEffects[fnName](text)
+      //   };
+      //   results.push(result);
+      // }
+
+      for (const effect of effects) {
         const result: Result = {
-          effectName: fnName,
-          richText: richTextEffects[fnName](text)
+          effectName: effect.name,
+          richText: effect.fn(text)
         };
         results.push(result);
       }
@@ -65,12 +73,10 @@ window.state = function () {
       await new Promise((resolve) => setTimeout(resolve, 2500));
 
       this.showToast = false;
-    }
-    ,
-
-    share: async function(elem: HTMLElement) {
+    },
+    share: async function (elem: HTMLElement) {
       const text: string = elem.innerText;
-      await shareText (text)
+      await shareText(text);
     }
   };
 };

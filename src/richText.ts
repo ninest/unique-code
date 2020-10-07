@@ -1,7 +1,23 @@
 import { unchangedTextChangeRange } from 'typescript';
 import { plain, num } from './constants';
 
-export const richTextEffects = {
+export interface Effect {
+  name: string;
+  fn: (text: string) => string;
+}
+
+export const effects: Effect[] = [
+  {
+    name: 'bold sans serif',
+    fn: (text) => gen({ aValue: 120276, zeroValue: 120812, inputText: text })
+  },
+  {
+    name: 'italic sans serif',
+    fn: (text) => gen({ aValue: 120328, allowNumbers: false, inputText: text })
+  }
+];
+
+const richTextEffects = {
   // sans serif
   'bold sans serif': (text: string) =>
     gen({ aValue: 120276, zeroValue: 120812, inputText: text }),
