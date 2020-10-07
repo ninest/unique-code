@@ -1,5 +1,6 @@
 import { gen } from './gen/gen';
 import { genUpsidedown } from './gen/upsidedown';
+import { genSarcastic } from './gen/sarcastic';
 
 export interface Effect {
   name: string;
@@ -14,6 +15,10 @@ export const effects: Effect[] = [
   {
     name: 'upside down',
     fn: (text) => genUpsidedown(text, true)
+  },
+  {
+    name: 'sarcastic',
+    fn: (text) => genSarcastic(text)
   },
 
   // sans serif
