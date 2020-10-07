@@ -1,9 +1,9 @@
 import 'alpinejs';
 
 import { placeholders } from './constants';
-import { effects, Effect } from './richText';
-import { copyToClipboard } from './clipboard';
-import { canShare, shareText } from './share';
+import { effects, Effect } from './effects';
+import { copyToClipboard } from './utils/clipboard';
+import { canShare, shareText } from './utils/share';
 
 declare global {
   interface Window {

@@ -1,4 +1,4 @@
-import { plainAll, upsidedownAll } from './constants';
+import { plainAll, upsidedownAll } from '../constants';
 
 export const genUpsidedown = (text: string, reverse: boolean = false) => {
   const converted: string[] = [];
