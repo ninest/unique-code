@@ -24,6 +24,8 @@ window.state = function () {
     showToast: false,
     canShare: true,
 
+    pins: [],
+
     // --- lifecycle hook ---
     created(refs: any) {
       this.setPlaceholder(refs.input);
@@ -45,14 +47,7 @@ window.state = function () {
       const text: string = this.textInput.replace(/<[^>]*>/g, ' ');
 
       const results: Result[] = [];
-      // for (const fnName of Object.keys(richTextEffects)) {
-      //   const result: Result = {
-      //     effectName: fnName,
-      //     richText: richTextEffects[fnName](text)
-      //   };
-      //   results.push(result);
-      // }
-
+  
       for (const effect of effects) {
         const result: Result = {
           effectName: effect.name,
@@ -77,6 +72,11 @@ window.state = function () {
     share: async function (elem: HTMLElement) {
       const text: string = elem.innerText;
       await shareText(text);
+    },
+
+    pin: function (elem: any) {
+      // Add effect to favorites, saved by local storage
+      console.log(elem)
     }
   };
 };

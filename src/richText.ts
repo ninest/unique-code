@@ -1,4 +1,3 @@
-import { unchangedTextChangeRange } from 'typescript';
 import { plain, num } from './constants';
 
 export interface Effect {
@@ -7,6 +6,7 @@ export interface Effect {
 }
 
 export const effects: Effect[] = [
+  // sans serif
   {
     name: 'bold sans serif',
     fn: (text) => gen({ aValue: 120276, zeroValue: 120812, inputText: text })
@@ -14,88 +14,107 @@ export const effects: Effect[] = [
   {
     name: 'italic sans serif',
     fn: (text) => gen({ aValue: 120328, allowNumbers: false, inputText: text })
-  }
-];
-
-const richTextEffects = {
-  // sans serif
-  'bold sans serif': (text: string) =>
-    gen({ aValue: 120276, zeroValue: 120812, inputText: text }),
-
-  'italic sans serif': (text: string) =>
-    gen({ aValue: 120328, allowNumbers: false, inputText: text }),
-
-  'italic-bold sans serif': (text: string) =>
-    gen({ aValue: 119912, allowNumbers: false, inputText: text }),
+  },
+  {
+    name: 'italic-bold sans serif',
+    fn: (text: string) =>
+      gen({ aValue: 119912, allowNumbers: false, inputText: text })
+  },
 
   // serif
-  'bold serif': (text: string) =>
-    gen({ aValue: 119808, zeroValue: 120782, inputText: text }),
-  'italic-bold serif': (text: string) =>
-    gen({ aValue: 120172, allowNumbers: false, inputText: text }),
+  {
+    name: 'bold serif',
+    fn: (text: string) =>
+      gen({ aValue: 119808, zeroValue: 120782, inputText: text })
+  },
+  {
+    name: 'italic-bold serif',
+    fn: (text: string) =>
+      gen({ aValue: 120172, allowNumbers: false, inputText: text })
+  },
 
   // monospace
-  typewriter: (text: string) =>
-    gen({ aValue: 120432, zeroValue: 120822, inputText: text }),
+  {
+    name: 'typewriter',
+    fn: (text: string) =>
+      gen({ aValue: 120432, zeroValue: 120822, inputText: text })
+  },
 
   // fun
-  circles: (text: string) =>
-    gen({
-      aValue: 9398,
-      onlyUppercase: true, // lowercase circles are different sizes
-      zeroValue: 9450,
-      oneValue: 9312,
-      inputText: text
-    }),
-
-  'dark circles': (text: string) =>
-    gen({
-      aValue: 127312,
-      zeroValue: 9471,
-      oneValue: 10102,
-      onlyUppercase: true,
-      inputText: text
-    }),
-
-  squares: (text: string) =>
-    gen({
-      aValue: 127280,
-      onlyUppercase: true,
-      allowNumbers: false,
-      inputText: text
-    }),
-
-  'dark squares': (text: string) =>
-    gen({
-      aValue: 127344,
-      onlyUppercase: true,
-      allowNumbers: false,
-      inputText: text
-    }),
+  {
+    name: 'circles',
+    fn: (text: string) =>
+      gen({
+        aValue: 9398,
+        onlyUppercase: true, // lowercase circles are different sizes
+        zeroValue: 9450,
+        oneValue: 9312,
+        inputText: text
+      })
+  },
+  {
+    name: 'dark circles',
+    fn: (text: string) =>
+      gen({
+        aValue: 127312,
+        zeroValue: 9471,
+        oneValue: 10102,
+        onlyUppercase: true,
+        inputText: text
+      })
+  },
+  {
+    name: 'squares',
+    fn: (text: string) =>
+      gen({
+        aValue: 127280,
+        onlyUppercase: true,
+        allowNumbers: false,
+        inputText: text
+      })
+  },
+  {
+    name: 'dark squares',
+    fn: (text: string) =>
+      gen({
+        aValue: 127344,
+        onlyUppercase: true,
+        allowNumbers: false,
+        inputText: text
+      })
+  },
 
   // special
-  double: (text: string) =>
-    gen({
-      aValue: 120120,
-      zeroValue: 120792,
-      inputText: text
-    }),
+  {
+    name: 'double',
+    fn: (text: string) =>
+      gen({
+        aValue: 120120,
+        zeroValue: 120792,
+        inputText: text
+      })
+  },
 
   // cursive
-  cursive: (text: string) =>
-    gen({
-      aValue: 119964,
-      allowNumbers: false,
-      inputText: text
-    }),
-
-  'bold cursive': (text: string) =>
-    gen({
-      aValue: 120016,
-      allowNumbers: false,
-      inputText: text
-    })
-};
+  {
+    name: 'cursive',
+    fn: (text: string) =>
+      gen({
+        aValue: 119964,
+        allowNumbers: false,
+        inputText: text
+      })
+  },
+  {
+    name: 'bold cursive',
+    fn: (text: string) =>
+      gen({
+        aValue: 120016,
+        allowNumbers: false,
+        inputText: text
+      })
+  }
+];
 
 /*
 https://boldtext.io/
@@ -155,38 +174,6 @@ const gen = ({
       converted.push(char);
     }
     if (strike) converted.push('&#x336;');
-  });
-
-  return converted.join('');
-};
-
-const generateUniqueCode = (
-  aValue: number,
-  zeroValue: number,
-  text: string,
-  requiresUppercase: boolean = false
-) => {
-  const converted: string[] = [];
-  if (requiresUppercase) text = text.toUpperCase();
-  const textArray: string[] = text.split('');
-
-  textArray.forEach((char: string) => {
-    let pos: number;
-    let unicode: number;
-
-    // find if it's a letter or number
-    if (char.match(/[a-zA-Z]/)) {
-      pos = plain.indexOf(char);
-      unicode = aValue + pos;
-    } else if (zeroValue && char.match(/[0-9]/)) {
-      // Not all fonts have characters for numbers
-      pos = num.indexOf(char);
-      unicode = zeroValue + pos;
-    }
-
-    if (unicode !== undefined) {
-      converted.push(`&#${unicode};`);
-    } else converted.push(char);
   });
 
   return converted.join('');

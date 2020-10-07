@@ -23,4 +23,12 @@
   .btn-red:hover {
     @apply bg-red-300
   }
+
+  .btn-orange {
+    @apply bg-orange-100 text-orange-900
+  }
+
+  .btn-orange:hover {
+    @apply bg-orange-300
+  }
 }
