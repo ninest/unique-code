@@ -17,8 +17,7 @@ export const gen = ({
   allowNumbers = true,
   zeroValue,
   oneValue,
-  inputText,
-  strike = false
+  inputText
 }: params) => {
   // array will be converted to list then returned
   const converted: string[] = [];
@@ -45,12 +44,12 @@ export const gen = ({
     }
 
     if (unicode !== undefined) {
-      converted.push(`&#${unicode};`);
+      const hex = unicode.toString(16);
+      converted.push(`&#x${hex};`);
     } else {
       // insert same character if not a number of letter
       converted.push(char);
     }
-    if (strike) converted.push('&#x336;');
   });
 
   return converted.join('');
