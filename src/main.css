@@ -6,7 +6,7 @@
 
 @layer components {
   .btn {
-    @apply mt-2 p-2 rounded-md inline-flex items-center
+    @apply mt-2 p-2 rounded-md inline-flex items-center cursor-pointer	
   }
 
   .btn-blue {
@@ -30,5 +30,13 @@
 
   .btn-orange:hover {
     @apply bg-orange-300
+  }
+
+  .btn-gray {
+    @apply bg-gray-300 text-gray-900
+  }
+
+  .btn-gray:hover {
+    @apply bg-gray-500
   }
 }

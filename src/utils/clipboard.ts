@@ -5,6 +5,12 @@ declare global {
 }
 
 export const copyToClipboard = (text: string) => {
+  /* 
+  Use native clipboard, then textarea copy.
+  
+  Fallback to showing text in prompt
+  */
+
   if (window.clipboardData && window.clipboardData.SetData)
     return window.clipboardData.setData('Text', text);
   else if (
