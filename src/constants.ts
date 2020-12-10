@@ -4,7 +4,6 @@ export const placeholders: string[] = [
   'Why was 6 afraid of 7?',
   'Enter your own text here',
   'Lorem Ipsum',
-  'Have you voted?',
   'Early application',
   'Check me out on GitHub'
 ];
