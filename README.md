@@ -1,6 +1,6 @@
 # 🅄🄽🄸🅀🄴 🄲🄾🄳🄴
 
-> **Fancy unicode fonts**
+> **Fancy plain text**
 
 ## 🦋 Demo
 
@@ -46,7 +46,7 @@ Prettier is used to format on save.
 
 ## 💬 Accessibility 
 
-The use of "unicode fonts" may impede accessibility. Screen readers can read "𝗛" as "mathematical character bold H" rather than "H". Read [Can screen readers interpret Unicode styles fonts such as bold and italics?](https://ux.stackexchange.com/questions/118149/can-screen-readers-interpret-unicode-styles-fonts-such-as-bold-and-italics)
+The use of these "unicode fonts" may impede accessibility. Screen readers can read "𝗛" as "mathematical character bold H" rather than "H". Read [Can screen readers interpret Unicode styles fonts such as bold and italics?](https://ux.stackexchange.com/questions/118149/can-screen-readers-interpret-unicode-styles-fonts-such-as-bold-and-italics)
 
 ## 📜 License
 
