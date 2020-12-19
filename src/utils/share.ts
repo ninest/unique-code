@@ -16,7 +16,7 @@ export const shareText = async (text: string) => {
   const shareData: ShareData = {
     title: "UniqueCode",
     text: text,
-    url: 'https://unqiquecode.now.sh'
+    // url: 'https://unqiquecode.now.sh'
   };
 
   return await navigator.share(shareData);

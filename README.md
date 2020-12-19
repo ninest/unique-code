@@ -48,6 +48,8 @@ Prettier is used to format on save.
 
 The use of these "unicode fonts" may impede accessibility. Screen readers can read "𝗛" as "mathematical character bold H" rather than "H". Read [Can screen readers interpret Unicode styles fonts such as bold and italics?](https://ux.stackexchange.com/questions/118149/can-screen-readers-interpret-unicode-styles-fonts-such-as-bold-and-italics)
 
+Please only use this on messages to friends! Do not put this text on your website!
+
 ## 📜 License
 
 MIT
