@@ -6,7 +6,7 @@
 
 [uniquecode.now.sh](https://uniquecode.now.sh/)
 
-## 🔡 Examples
+## Examples
 
 - Bold sans-serif: 𝗧𝗵𝗶𝘀 𝘁𝗲𝘅𝘁 𝗶𝘀 𝗳𝗮𝗻𝗰𝘆
 - Italics serif: 𝑻𝒉𝒊𝒔 𝒕𝒆𝒙𝒕 𝒊𝒔 𝒇𝒂𝒏𝒄𝒚
@@ -15,7 +15,7 @@
 
 All of these characters are plain text, so they can be pasted anywhere.
 
-## ⚙️ Build setup
+## ⚙Build setup
 
 ```
 npm i
@@ -44,7 +44,7 @@ Prettier is used to format on save.
 }
 ```
 
-## 💬 Accessibility 
+## Accessibility 
 
 The use of these "unicode fonts" may impede accessibility. Screen readers can read "𝗛" as "mathematical character bold H" rather than "H". Read [Can screen readers interpret Unicode styles fonts such as bold and italics?](https://ux.stackexchange.com/questions/118149/can-screen-readers-interpret-unicode-styles-fonts-such-as-bold-and-italics)
 

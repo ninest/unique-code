@@ -20,13 +20,13 @@
 
       <!-- text input -->
       <div class="sticky top-0 bg-yellow-500 shadow p-5 sm:px-16 lg:px-64">
-        <input
+        <textarea
           x-ref="input"
-          class="container p-3 rounded-lg text-lg border-dotted border-2 focus:outline-none focus:border-gray-700"
-          type="text"
-          x-model="textInput"
           x-on:input="generateFancyText()"
-        />
+          x-model="textInput"
+          rows="1"
+          class="container p-3 rounded-lg text-lg border-dotted border-2 focus:outline-none focus:border-gray-700"
+        ></textarea>
       </div>
 
       <!-- results loop -->
@@ -44,7 +44,7 @@
 
             <!-- result (copyable text) -->
             <div
-              class="mt-1 text-xl"
+              class="mt-1 text-xl whitespace-pre-wrap break-words"
               :x-ref="`result-${index}`"
               x-html="result.richText"
             ></div>

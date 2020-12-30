@@ -53,8 +53,12 @@ window.state = function () {
       for (const effect of effects) {
         const result: Result = {
           effectName: effect.name,
-          richText: effect.fn(isEmpty? `Example for ${effect.name}` :text)
+          richText: effect.fn(isEmpty ? `Example for ${effect.name}` : text)
         };
+
+        // Set newlines to line breaks
+        result.richText = result.richText.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
         results.push(result);
       }
 
