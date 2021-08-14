@@ -181,7 +181,6 @@
   </main>
 
   <script>
-    console.log(process.env.NODE_ENV)
     const SERVICE_WORKER_PATH = 'sw.js';
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       window.addEventListener('load', () => {
