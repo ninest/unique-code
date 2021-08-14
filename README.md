@@ -10,7 +10,7 @@
 
 - Bold sans-serif: 𝗧𝗵𝗶𝘀 𝘁𝗲𝘅𝘁 𝗶𝘀 𝗳𝗮𝗻𝗰𝘆
 - Italics serif: 𝑻𝒉𝒊𝒔 𝒕𝒆𝒙𝒕 𝒊𝒔 𝒇𝒂𝒏𝒄𝒚
-- Light cirlces: ⓉⒽⒾⓈ ⓉⒺⓍⓉ ⒾⓈ ⒻⒶⓃⒸⓎ
+- Light circles: ⓉⒽⒾⓈ ⓉⒺⓍⓉ ⒾⓈ ⒻⒶⓃⒸⓎ
 - Dark squares: 🆃🅷🅸🆂 🆃🅴🆇🆃 🅸🆂 🅵🅰🅽🅲🆈
 
 All of these characters are plain text, so they can be pasted anywhere.
@@ -58,6 +58,18 @@ pwa-asset-generator ./assets/web-icon.svg ./assets/ios-splash --splash-only --ba
 pwa-asset-generator ./assets/web-icon.svg ./assets/icons --icon-only --maskable --opaque false --favicon --padding "25%"
 
 pwa-asset-generator ./assets/web-icon.svg ./assets/icons --icon-only --maskable --opaque true --padding "25%"
+```
+
+### Workbox
+
+This project uses Workbox `generateSW`:
+
+```bash
+yarn workbox wizard
+yarn workbox generateSW
+yarn workbox generateSW workbox-config.js
+# or
+yarn build-sw
 ```
 
 ## Accessibility 

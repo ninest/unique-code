@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "workbox": "workbox",
     "dev": "npm run clean && parcel src/index.html",
     "clean": "rimraf ./public && rimraf ./dist && rimraf ./.cache",
-    "build": "npm run clean && parcel build src/index.html"
+    "build-sw": "workbox generateSW workbox-config.js",
+    "build": "npm run clean && parcel build src/index.html && yarn build-sw",
+    "serve": "serve -s dist"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +18,7 @@
     "@parcel/transformer-image": "2.0.0-rc.0",
     "@parcel/transformer-webmanifest": "2.0.0-rc.0",
     "autoprefixer": "^10.3.1",
-    "parcel": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-nightly.574",
     "postcss": "^8.3.6",
     "posthtml-include": "^1.7.1",
     "prettier": "^2.1.2",
