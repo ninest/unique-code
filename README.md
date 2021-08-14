@@ -44,6 +44,22 @@ Prettier is used to format on save.
 }
 ```
 
+### Icons
+
+#### iOS splash screens
+
+```bash
+pwa-asset-generator ./assets/web-icon.svg ./assets/ios-splash --splash-only --background "#F3F4F6"
+```
+
+#### iOS icons, Android icons, favicons
+
+```bash
+pwa-asset-generator ./assets/web-icon.svg ./assets/icons --icon-only --maskable --opaque false --favicon --padding "25%"
+
+pwa-asset-generator ./assets/web-icon.svg ./assets/icons --icon-only --maskable --opaque true --padding "25%"
+```
+
 ## Accessibility 
 
 The use of these "unicode fonts" may impede accessibility. Screen readers can read "𝗛" as "mathematical character bold H" rather than "H". Read [Can screen readers interpret Unicode styles fonts such as bold and italics?](https://ux.stackexchange.com/questions/118149/can-screen-readers-interpret-unicode-styles-fonts-such-as-bold-and-italics)
