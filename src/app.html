@@ -1,10 +1,24 @@
-<body class="bg-gray-100">
+<body class="">
   <main x-data="state()" x-init="created($refs)">
     <!-- page title -->
-    <h1 class="m-5 text-4xl text-center font-black italic">Unique Code</h1>
+    <header class="p-5 sm:px-16 lg:px-64 py-6">
+      <img src="../assets/web-icon.svg" alt="Icon" class="mx-auto h-12" />
+      <!-- <h1 class="text-4xl font-medium">Unique Code</h1> -->
+    </header>
 
     <!-- text input -->
-    <div class="sticky top-0 bg-yellow-500 shadow p-5 sm:px-16 lg:px-64">
+    <div
+      class="
+        sticky
+        top-0
+        bg-gray-100
+        text-gray-700
+        border-t border-b
+        p-5
+        sm:px-16
+        lg:px-64
+      "
+    >
       <textarea
         x-ref="input"
         x-on:input="generateFancyText()"
@@ -12,11 +26,13 @@
         rows="1"
         class="
           container
-          p-3
-          rounded-lg
-          text-lg
+          p-4
+          text-xl
+          w-full
+          font-medium
           border-dotted border-2
           focus:outline-none focus:border-gray-700
+          resize-none
         "
       ></textarea>
     </div>
@@ -24,10 +40,8 @@
     <!-- results loop -->
     <div class="mx-5 sm:mx-16 lg:mx-64">
       <template x-for="(result, index) in results" :key="result">
-        <div
-          x-on:click="copy($refs[`result-${index}`])"
-          class="mt-6 bg-white p-5 rounded shadow"
-        >
+        <div x-on:click="copy($refs[`result-${index}`])" 
+        class="py-8 border-b focus:bg-gray-50">
           <!-- effect name (eybrow) -->
           <span
             class="inline-block text-xs text-gray-700 font-bold uppercase"
@@ -41,9 +55,9 @@
             x-html="result.richText"
           ></div>
 
-          <div class="flex items-center">
+          <div class="mt-4 flex items-center space-x-3">
             <!-- copy button -->
-            <button class="btn btn-blue">
+            <button class="button">
               <svg
                 class="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +77,9 @@
 
             <!-- share button -->
             <button
-              x-show="canShare"
+            x-show="canShare"
               x-on:click="share($refs[`result-${index}`])"
-              class="ml-2 btn btn-red"
+              class="button"
             >
               <svg
                 class="h-4 w-4"
@@ -145,26 +159,22 @@
     </div>
 
     <!-- toast -->
+
     <div
       x-show="showToast"
-      class="
-        fixed
-        w-32
-        mx-auto
-        my-10
-        bottom-0
-        left-0
-        right-0
-        p-5
-        rounded-lg
-        bg-blue-900
-        text-center text-white
-        font-semibold
-        uppercase
-        tracking-wide
-      "
+      class="fixed w-min mx-auto my-10 bottom-0 left-0 right-0 shadow"
     >
-      copied
+      <div
+        class="
+          p-4
+          bg-blue-900
+          text-center text-white
+          font-semibold
+          tracking-wide
+        "
+      >
+        Copied!
+      </div>
     </div>
   </main>
 
