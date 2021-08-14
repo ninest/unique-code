@@ -18,8 +18,8 @@ All of these characters are plain text, so they can be pasted anywhere.
 ## ⚙Build setup
 
 ```
-npm i
-npm run dev
+yarn
+yarn dev
 ```
 
 ### Hosting
